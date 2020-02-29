@@ -24,5 +24,105 @@
         "fret": 0
       }
     ]
+  },
+  {
+    "name": "Emaj⁷",
+    "shape": [
+      {
+        "fret": 0
+      },
+      {
+        "fret": 2,
+        "finger": 3
+      },
+      {
+        "fret": 1,
+        "finger": 1
+      },
+      {
+        "fret": 1,
+        "finger": 2
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 0
+      }
+    ]
+  },
+  {
+    "name": "E⁷",
+    "shape": [
+      {
+        "fret": 0
+      },
+      {
+        "fret": 2,
+        "finger": 2
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 1,
+        "finger": 1
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 0
+      }
+    ]
+  },
+  {
+    "name": "Em",
+    "shape": [
+      {
+        "fret": 0
+      },
+      {
+        "fret": 2,
+        "finger": 2
+      },
+      {
+        "fret": 2,
+        "finger": 3
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 0
+      }
+    ]
+  },
+  {
+    "name": "Em⁷",
+    "shape": [
+      {
+        "fret": 0
+      },
+      {
+        "fret": 2,
+        "finger": 2
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 0
+      }
+    ]
   }
 ]
