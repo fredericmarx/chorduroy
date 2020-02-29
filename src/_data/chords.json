@@ -124,5 +124,248 @@
         "fret": 0
       }
     ]
+  },
+  {
+    "name": "G",
+    "shape": [
+      {
+        "fret": 3,
+        "finger": 2
+      },
+      {
+        "fret": 2,
+        "finger": 1
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 3,
+        "finger": 3
+      }
+    ]
+  },
+  {
+    "name": "G⁷",
+    "shape": [
+      {
+        "fret": 3,
+        "finger": 3
+      },
+      {
+        "fret": 2,
+        "finger": 2
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 1,
+        "finger": 1
+      }
+    ]
+  },
+  {
+    "name": "Gmaj⁷",
+    "shape": [
+      {
+        "fret": 3,
+        "finger": 3
+      },
+      {
+        "fret": 2,
+        "finger": 2
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 2,
+        "finger": 1
+      }
+    ]
+  },
+  {
+    "name": "Gm",
+    "shape": [
+      {
+        "fret": 3,
+        "finger": 2
+      },
+      {
+        "fret": 1,
+        "finger": 1
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 3,
+        "finger": 3
+      },
+      {
+        "fret": 3,
+        "finger": 4
+      }
+    ]
+  },
+  {
+    "name": "C",
+    "shape": [
+      {},
+      {
+        "fret": 3,
+        "finger": 3
+      },
+      {
+        "fret": 2,
+        "finger": 2
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 1,
+        "finger": 1
+      },
+      {
+        "fret": 0
+      }
+    ]
+  },
+  {
+    "name": "Cmaj⁷",
+    "shape": [
+      {},
+      {
+        "fret": 3,
+        "finger": 3
+      },
+      {
+        "fret": 2,
+        "finger": 2
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 0
+      }
+    ]
+  },
+  {
+    "name": "C⁷",
+    "shape": [
+      {},
+      {
+        "fret": 3,
+        "finger": 3
+      },
+      {
+        "fret": 2,
+        "finger": 2
+      },
+      {
+        "fret": 3,
+        "finger": 4
+      },
+      {
+        "fret": 1,
+        "finger": 1
+      },
+      {
+        "fret": 0
+      }
+    ]
+  },
+  {
+    "name": "Cm",
+    "shape": [
+      {},
+      {
+        "fret": 3,
+        "finger": 3
+      },
+      {
+        "fret": 1,
+        "finger": 1
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 1,
+        "finger": 2
+      },
+      {}
+    ]
+  },
+  {
+    "name": "D",
+    "shape": [
+      {},
+      {},
+      {
+        "fret": 0
+      },
+      {
+        "fret": 2,
+        "finger": 1
+      },
+      {
+        "fret": 3,
+        "finger": 3
+      },
+      {
+        "fret": 2,
+        "finger": 2
+      }
+    ]
+  },
+  {
+    "name": "Dmaj⁷",
+    "shape": [
+      {},
+      {},
+      {
+        "fret": 0
+      },
+      {
+        "fret": 2,
+        "finger": 1
+      },
+      {
+        "fret": 2,
+        "finger": 1
+      },
+      {
+        "fret": 2,
+        "finger": 1
+      }
+    ]
   }
 ]

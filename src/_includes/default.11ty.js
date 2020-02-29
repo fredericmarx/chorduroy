@@ -24,22 +24,49 @@ const getOrdinalNumber = number => {
 };
 
 const constructSentence = chordShape => {
-  const result = chordShape
-    .map((string, index) => ({ ...string, index }))
-    .filter(string => string.finger)
-    .sort((a, b) => a.finger - b.finger)
-    .map((string, i, arr) => {
-      const isLastItem = i + 1 === arr.length;
-      const isOnlyItem = arr.length === 1;
+  const fingerFactory = (name, index) => ({ name, index });
+  const stringFactory = (string, index) => ({ ...string, index });
+  const getFretByFinger = (finger, chordShape) => {
+    const frettedString = chordShape.find(
+      string => string.finger === finger.index + 1
+    );
+    return frettedString ? frettedString.fret : undefined;
+  };
+  const stringIsFrettedByFinger = (string, finger) =>
+    string.finger === finger.index + 1;
+  const fingerIsUsed = (finger, chordShape) =>
+    chordShape.find(string => stringIsFrettedByFinger(string, finger)) && true;
+  const listToText = (list, oxfordComma) =>
+    list
+      .map((item, i, arr) => {
+        const isFirstItem = i === 0;
+        const isLastItem = i + 1 === arr.length;
+        const isOnlyItem = arr.length === 1;
 
-      return `${isLastItem && !isOnlyItem ? "and " : ""}your ${
-        fingerNames[string.finger - 1]
-      } on the ${getOrdinalNumber(string.fret)} fret of the ${getOrdinalNumber(
-        string.index + 1
-      )} string${!isLastItem ? ",</span> <span>" : ""}`;
-    })
-    .join("");
-  return `<span>Put ${result}.</span>`;
+        const maybeAnd = isLastItem && !isOnlyItem ? " and " : "";
+        const maybeComma =
+          isFirstItem || (isLastItem && !oxfordComma) ? "" : ", ";
+
+        return maybeComma + maybeAnd + item;
+      })
+      .join("");
+
+  const fingers = fingerNames.map((name, index) => fingerFactory(name, index));
+
+  const result = fingers
+    .filter(finger => fingerIsUsed(finger, chordShape))
+    .map(finger => {
+      const fret = getFretByFinger(finger, chordShape);
+      const stringOrdinalNumbers = chordShape
+        .map((string, index) => stringFactory(string, index))
+        .filter(string => stringIsFrettedByFinger(string, finger))
+        .map(string => getOrdinalNumber(string.index + 1));
+      return `your ${finger.name} on the ${getOrdinalNumber(fret)} fret ${
+        stringOrdinalNumbers.length === 1 ? "of" : "across"
+      } the ${listToText(stringOrdinalNumbers)} string`;
+    });
+
+  return `Put ${listToText(result, true)}.`;
 };
 
 const renderChord = chord =>
@@ -50,8 +77,10 @@ const renderChord = chord =>
       .map(
         (string, i) => `<li
           class="${string.finger ? "finger" : ""}"
-          style="grid-column: ${i + 1}; grid-row: ${string.fret + 1};">
-          ${string.finger || 0}
+          style="grid-column: ${i + 1}; grid-row: ${
+          string.fret === undefined ? "1" : string.fret + 1
+        };">
+          ${string.fret === undefined ? "" : string.finger || "0"}
         </li>`
       )
       .join("")}
