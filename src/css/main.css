@@ -5,3 +5,13 @@ body {
 img {
   width: 100%;
 }
+
+.list-reset {
+  list-style: none;
+  padding-left: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}

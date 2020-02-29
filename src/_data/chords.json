@@ -1,0 +1,28 @@
+[
+  {
+    "name": "E",
+    "shape": [
+      {
+        "fret": 0
+      },
+      {
+        "fret": 2,
+        "finger": 2
+      },
+      {
+        "fret": 2,
+        "finger": 3
+      },
+      {
+        "fret": 1,
+        "finger": 1
+      },
+      {
+        "fret": 0
+      },
+      {
+        "fret": 0
+      }
+    ]
+  }
+]
