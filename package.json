@@ -1,0 +1,20 @@
+{
+  "name": "chorduroy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "eleventy": "eleventy",
+    "clean": "rm -rf -- dist",
+    "build": "npm run clean && npm run eleventy",
+    "watch": "npm run build && npx eleventy --watch",
+    "serve": "npm run build && npx eleventy --serve",
+    "start": "npm run serve"
+  },
+  "keywords": [],
+  "author": "Frederic Marx <marx.frederic@gmail.com> (https://fmarx.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.10.0"
+  }
+}
