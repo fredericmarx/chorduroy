@@ -102,7 +102,7 @@ const renderLinkList = (chords, currentChord, className, listItemClassName) => {
   return `<ul class="${className}">${list}</ul>`;
 };
 
-const renderChord = (chord, chords) =>
+const renderChord = chord =>
   `<figure>
       <ol class="list-reset fretboard" role="img" aria-labelledby="id="${
         chord.name
@@ -128,7 +128,18 @@ const renderChord = (chord, chords) =>
       </figcaption>
     </figure>`;
 
-module.exports = ({ chord: activeChord, chords, content, title }) => {
+module.exports = ({ chord: activeChord, chords: unsortedChords, title }) => {
+  const chords = unsortedChords.sort((a, b) => {
+    const nameA = a.name.toUpperCase();
+    const nameB = b.name.toUpperCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+  });
   const chord = activeChord || chords[0];
   return `
     <!doctype html>
