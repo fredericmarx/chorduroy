@@ -104,9 +104,8 @@ const renderLinkList = (chords, currentChord, className, listItemClassName) => {
 
 const renderChord = chord =>
   `<figure>
-      <ol class="list-reset fretboard" role="img" aria-labelledby="id="${
-        chord.name
-      }-caption"">
+    <div role="img" aria-labelledby="${chord.name}-caption">
+      <ol class="list-reset fretboard">
         ${chord.shape
           .map(
             (string, i) => `<li
@@ -122,7 +121,8 @@ const renderChord = chord =>
             </li>`
           )
           .join("")}
-      </ol>
+        </ol>
+      </div>
       <figcaption id="${chord.name}-caption">
         ${constructSentence(chord.shape)}
       </figcaption>
