@@ -93,13 +93,13 @@ const renderLinkList = (chords, currentChord, className, listItemClassName) => {
       const isCurrentChord = chord.name === currentChord.name;
       const url = `/${chord.name.toLowerCase()}`;
       if (isCurrentChord) {
-        return `<li class="${listItemClassName}">${chord.name}</li>`;
+        return `<li class="${listItemClassName}"><span>${chord.name}</span></li>`;
       } else {
         return `<li class="${listItemClassName}"><a href="${url}">${chord.name}</a></li>`;
       }
     })
     .join("");
-  return `<ul class="${className}">${list}</ul>`;
+  return `<ul class="${className} linklist">${list}</ul>`;
 };
 
 const renderChord = chord =>
@@ -165,15 +165,15 @@ module.exports = ({ chord: activeChord, chords: unsortedChords, title }) => {
             chords.filter(chord => chord.name.length === 1),
             chord,
             "list-reset small",
-            "inline-block mr-1sp"
+            "inline-block mr-1sp pr-1sp-nested"
           )}
         </header>
         <main>
           ${chord ? renderChord(chord, chords) : ""}
         </main>
-        <footer class="small">
+        <footer>
           <p><a href="/">Chorduroy</a> is an accessible chord shape reference for guitar made by <a rel="author" href="https://twitter.com/fredericmarx">Frederic Marx</a>.</p>
-          <h2>All chords</h2>
+          <h2 class="visually-hidden">All chords</h2>
           ${renderLinkList(chords, chord, "list-reset")}
         </footer>
       </body>

@@ -37,7 +37,11 @@ a {
 }
 
 .mr-1sp {
-  margin-right: 0.8em;
+  margin-right: 1em;
+}
+
+.pr-1sp-nested > * {
+  padding-right: 1em;
 }
 
 .fretboard {
@@ -82,4 +86,10 @@ a {
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap; /* added line */
+}
+
+.linklist li > * {
+  display: block;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
 }
