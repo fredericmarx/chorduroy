@@ -87,11 +87,24 @@ const constructSentence = chordShape => {
   )}`;
 };
 
-const renderChord = chord =>
-  `<article id="${chord.name}">
-    <h2>${chord.name}</h2>
-    <figure>
-      <ol class="list-reset grid" role="img" aria-labelledby="id="${
+const renderLinkList = (chords, currentChord, className, listItemClassName) => {
+  const list = chords
+    .map(chord => {
+      const isCurrentChord = chord.name === currentChord.name;
+      const url = `/${chord.name.toLowerCase()}`;
+      if (isCurrentChord) {
+        return `<li class="${listItemClassName}">${chord.name}</li>`;
+      } else {
+        return `<li class="${listItemClassName}"><a href="${url}">${chord.name}</a></li>`;
+      }
+    })
+    .join("");
+  return `<ul class="${className}">${list}</ul>`;
+};
+
+const renderChord = (chord, chords) =>
+  `<figure>
+      <ol class="list-reset fretboard" role="img" aria-labelledby="id="${
         chord.name
       }-caption"">
         ${chord.shape
@@ -113,31 +126,46 @@ const renderChord = chord =>
       <figcaption id="${chord.name}-caption">
         ${constructSentence(chord.shape)}
       </figcaption>
-    </figure>
-  </article>`;
+    </figure>`;
 
-const renderChords = chords =>
-  `${chords.map(chord => renderChord(chord)).join("")}`;
+module.exports = ({ chord: activeChord, chords, content, title }) => {
+  const chord = activeChord || chords[0];
+  return `
+    <!doctype html>
+    <html class="no-js" lang="en">
+      <head>
+        <meta charset="utf-8">
+        <title>${chord ? `${chord.name}: ` : ""}Chorduroy</title>
+        <meta name="description" content="An accessible chord shape reference for guitar.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/main.css">
+      </head>
 
-module.exports = ({ chords, content, title }) => `
-<!doctype html>
-<html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>${title === "Chorduroy" ? "" : `${title} — `}Chorduroy</title>
-    <meta name="description" content="An accessible chord shape reference for guitar.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/css/main.css">
-  </head>
-
-  <body>
-    <header>
-      <h1>Chorduroy</h1>
-    </header>
-    <main>
-      ${content}
-      ${renderChords(chords)}
-    </main>
-    <script src="/js/main.js"></script>
-  </body>
-</html>`;
+      <body>
+        <header>
+          <h1>${chord ? chord.name : title}</h1>
+          ${renderLinkList(
+            chords.filter(item => item.name.startsWith(chord.name.charAt(0))),
+            chord,
+            "list-reset",
+            "inline-block mr-1sp"
+          )}
+          ${renderLinkList(
+            chords.filter(chord => chord.name.length === 1),
+            chord,
+            "list-reset small",
+            "inline-block mr-1sp"
+          )}
+        </header>
+        <main>
+          ${chord ? renderChord(chord, chords) : ""}
+        </main>
+        <footer class="small">
+          <p><a href="/">Chorduroy</a> is an accessible chord shape reference for guitar made by <a rel="author" href="https://twitter.com/fredericmarx">Frederic Marx</a>.</p>
+          <h2>All chords</h2>
+          ${renderLinkList(chords, chord, "list-reset")}
+        </footer>
+        <script src="/js/main.js"></script>
+      </body>
+    </html>`;
+};

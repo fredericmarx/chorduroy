@@ -1,10 +1,11 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: calc(0.75rem + 1vw);
+  font-size: calc(1em + 1vw);
   line-height: 1.5;
   max-width: 25em;
   margin-left: 5%;
   margin-right: 5%;
+  margin-bottom: 2em;
 }
 
 p {
@@ -19,12 +20,25 @@ figure {
   margin: 0;
 }
 
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+.small {
+  font-size: 0.8em;
+}
+
 .list-reset {
   list-style: none;
   padding-left: 0;
 }
 
-.grid {
+.mr-1sp {
+  margin-right: 0.8em;
+}
+
+.fretboard {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-auto-rows: 3em;
@@ -41,6 +55,24 @@ figure {
     );
 }
 
-.grid > * {
+.fretboard > * {
   font-size: 2em;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.pill {
+  font-size: 0.85em;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* added line */
 }
