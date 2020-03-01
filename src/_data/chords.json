@@ -26,7 +26,7 @@
     ]
   },
   {
-    "name": "Emaj⁷",
+    "name": "Emaj7",
     "shape": [
       {
         "fret": 0
@@ -52,7 +52,7 @@
     ]
   },
   {
-    "name": "E⁷",
+    "name": "E7",
     "shape": [
       {
         "fret": 0
@@ -102,7 +102,7 @@
     ]
   },
   {
-    "name": "Em⁷",
+    "name": "Em7",
     "shape": [
       {
         "fret": 0
@@ -152,7 +152,7 @@
     ]
   },
   {
-    "name": "G⁷",
+    "name": "G7",
     "shape": [
       {
         "fret": 3,
@@ -178,7 +178,7 @@
     ]
   },
   {
-    "name": "Gmaj⁷",
+    "name": "Gmaj7",
     "shape": [
       {
         "fret": 3,
@@ -255,7 +255,7 @@
     ]
   },
   {
-    "name": "Cmaj⁷",
+    "name": "Cmaj7",
     "shape": [
       {},
       {
@@ -278,7 +278,7 @@
     ]
   },
   {
-    "name": "C⁷",
+    "name": "C7",
     "shape": [
       {},
       {
@@ -347,7 +347,7 @@
     ]
   },
   {
-    "name": "Dmaj⁷",
+    "name": "Dmaj7",
     "shape": [
       {},
       {},
