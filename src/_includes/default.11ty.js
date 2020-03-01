@@ -23,6 +23,8 @@ const getOrdinalNumber = number => {
   return `${number}th`;
 };
 
+const getFancyNumeral = number => String.fromCharCode(number - 1 + 10122);
+
 const constructSentence = chordShape => {
   const fingerFactory = (name, index) => ({ name, index });
   const stringFactory = (string, index) => ({ ...string, index });
@@ -80,7 +82,11 @@ const renderChord = chord =>
           style="grid-column: ${i + 1}; grid-row: ${
           string.fret === undefined ? "1" : string.fret + 1
         };">
-          ${string.fret === undefined ? "" : string.finger || "0"}
+          ${(() => {
+            if (string.fret === undefined) return "";
+            if (string.finger === undefined) return "●";
+            return getFancyNumeral(string.finger);
+          })()}
         </li>`
       )
       .join("")}

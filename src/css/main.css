@@ -23,7 +23,8 @@ img {
   grid-template-columns: repeat(6, 1fr);
   grid-auto-rows: 3em;
   grid-row-gap: 0.5em;
-  align-items: stretch;
+  align-items: center;
+  text-align: center;
   position: relative;
   background-image: linear-gradient(orange, orange 3em, transparent 3em),
     repeating-linear-gradient(
@@ -35,16 +36,5 @@ img {
 }
 
 .grid > * {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.finger {
-  position: relative;
-  color: white;
-  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"> <circle cx="50" cy="50" r="40"/> </svg>');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  font-size: 2em;
 }
