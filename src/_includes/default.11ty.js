@@ -176,7 +176,6 @@ module.exports = ({ chord: activeChord, chords: unsortedChords, title }) => {
           <h2>All chords</h2>
           ${renderLinkList(chords, chord, "list-reset")}
         </footer>
-        <script src="/js/main.js"></script>
       </body>
     </html>`;
 };
