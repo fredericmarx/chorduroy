@@ -88,26 +88,32 @@ const constructSentence = chordShape => {
 };
 
 const renderChord = chord =>
-  `<article>
+  `<article id="${chord.name}">
     <h2>${chord.name}</h2>
-    <ol class="list-reset grid">
-    ${chord.shape
-      .map(
-        (string, i) => `<li
-          class="${string.finger ? "finger" : ""}"
-          style="grid-column: ${i + 1}; grid-row: ${
-          string.fret === undefined ? "1" : string.fret + 1
-        };">
-          ${(() => {
-            if (string.fret === undefined) return "";
-            if (string.finger === undefined) return "●";
-            return getFancyNumeral(string.finger);
-          })()}
-        </li>`
-      )
-      .join("")}
-    </ol>
-    ${constructSentence(chord.shape)}
+    <figure>
+      <ol class="list-reset grid" role="img" aria-labelledby="id="${
+        chord.name
+      }-caption"">
+        ${chord.shape
+          .map(
+            (string, i) => `<li
+              class="${string.finger ? "finger" : ""}"
+              style="grid-column: ${i + 1}; grid-row: ${
+              string.fret === undefined ? "1" : string.fret + 1
+            };">
+              ${(() => {
+                if (string.fret === undefined) return "";
+                if (string.finger === undefined) return "●";
+                return getFancyNumeral(string.finger);
+              })()}
+            </li>`
+          )
+          .join("")}
+      </ol>
+      <figcaption id="${chord.name}-caption">
+        ${constructSentence(chord.shape)}
+      </figcaption>
+    </figure>
   </article>`;
 
 const renderChords = chords =>
@@ -118,15 +124,20 @@ module.exports = ({ chords, content, title }) => `
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8">
-    <title>${title}</title>
-    <meta name="description" content="">
+    <title>${title === "Chorduroy" ? "" : `${title} — `}Chorduroy</title>
+    <meta name="description" content="An accessible chord shape reference for guitar.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/main.css">
   </head>
 
   <body>
-    ${content}
-    ${renderChords(chords)}
+    <header>
+      <h1>Chorduroy</h1>
+    </header>
+    <main>
+      ${content}
+      ${renderChords(chords)}
+    </main>
     <script src="/js/main.js"></script>
   </body>
 </html>`;

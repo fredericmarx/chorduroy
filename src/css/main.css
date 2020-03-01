@@ -13,6 +13,10 @@ img {
   width: 100%;
 }
 
+figure {
+  margin: 0;
+}
+
 .list-reset {
   list-style: none;
   padding-left: 0;
