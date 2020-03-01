@@ -6,6 +6,8 @@ body {
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 2em;
+  background-color: #222;
+  color: white;
 }
 
 p {
@@ -21,7 +23,7 @@ figure {
 }
 
 a {
-  color: blue;
+  color: lightsalmon;
   text-decoration: none;
 }
 
@@ -46,10 +48,15 @@ a {
   align-items: center;
   text-align: center;
   position: relative;
-  background-image: linear-gradient(orange, orange 3em, transparent 3em),
+  color: #222;
+  background-image: linear-gradient(
+      lightsalmon,
+      lightsalmon 3em,
+      transparent 3em
+    ),
     repeating-linear-gradient(
-      rgba(0, 0, 0, 0.2),
-      rgba(0, 0, 0, 0.2) 3em,
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0.75) 3em,
       transparent 3em,
       transparent 3.5em
     );
