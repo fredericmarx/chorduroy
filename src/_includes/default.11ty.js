@@ -36,6 +36,7 @@ const constructSentence = chordShape => {
   };
   const stringIsFrettedByFinger = (string, finger) =>
     string.finger === finger.index + 1;
+  const stringIsPlayed = string => string.fret !== undefined;
   const fingerIsUsed = (finger, chordShape) =>
     chordShape.find(string => stringIsFrettedByFinger(string, finger)) && true;
   const listToText = (list, oxfordComma) =>
@@ -68,7 +69,22 @@ const constructSentence = chordShape => {
       } the ${listToText(stringOrdinalNumbers)} string`;
     });
 
-  return `Put ${listToText(result, true)}.`;
+  const stringInstructions = chordShape => {
+    const mutedStringNames = chordShape
+      .map((string, index) => stringFactory(string, index))
+      .filter(string => !stringIsPlayed(string))
+      .map(string => getOrdinalNumber(string.index + 1));
+
+    if (mutedStringNames.length === 0) return "";
+
+    return `<p>Play all strings, except the ${listToText(
+      mutedStringNames
+    )}.</p>`;
+  };
+
+  return `<p>Put ${listToText(result, true)}.</p>${stringInstructions(
+    chordShape
+  )}`;
 };
 
 const renderChord = chord =>
@@ -91,7 +107,7 @@ const renderChord = chord =>
       )
       .join("")}
     </ol>
-    <p>${constructSentence(chord.shape)}</p>
+    ${constructSentence(chord.shape)}
   </article>`;
 
 const renderChords = chords =>
